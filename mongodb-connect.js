@@ -14,10 +14,11 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', { useNewUrlParser: true
 	console.log('Connected to Server Successfully');
 	
 	const db=client.db('TodoApp');
-/* 	db.collection('Todos').insertOne({
+/*  	db.collection('Users').insertOne({
 		
-		text:'T pickup some books',
-		status:'Completed'
+		name:'Jane',
+		age:'50',
+		location:'Mumbai'
 		
 	},(err,result)=>{
 		
@@ -27,10 +28,10 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', { useNewUrlParser: true
 		}
 		
 		console.log(JSON.stringify(result.ops,undefined,2));	
-	}); */
+	});  */
 	
 	
-	db.collection('Users').find({name: 'Viren'}).toArray().then((docs)=>{
+/* 	db.collection('Users').find({name: 'Jane'}).toArray().then((docs)=>{
 		
 		console.log(JSON.stringify(docs,undefined,2));
 		
@@ -38,7 +39,16 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', { useNewUrlParser: true
 		
 		console.log('Unable to fetch ',err);
 		
+	});  */
+	
+	
+ 	db.collection('Users').findOneAndDelete({name:'Gerard'}).then((result)=>{
+		
+		console.log(result);
+		
+		
 	});
+	
 	
 	
 	
